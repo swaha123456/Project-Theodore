@@ -1,0 +1,603 @@
+/*:root {
+    --maincolor: rgb(73, 179, 179);
+    --secondcolor: rgb(238, 230, 230);
+    --textcolor: white;
+    --highlight-color: rgb(25, 172, 42);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all 0.2s linear;
+    font-family: "Noto Sans", sans-serif;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Header section with full viewport height 
+
+header {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ensure sections are flexible and occupy full height 
+section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh; /* Ensure full viewport height 
+    box-sizing: border-box; /* Include padding and border in height calculation 
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 60px;
+    width: 100%;
+    background: linear-gradient(135deg,rgb(247, 244, 244), #52b2d8);
+    padding: 10px 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+nav img {
+    height: 50px;
+}
+
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: black;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: color .215s ease;
+}
+
+.nav-links li::after {
+    content: '';
+    width: 0;
+    height: 2px;
+    background: white;
+    display: block;
+    margin: auto;
+}
+
+.nav-links li:hover::after {
+    width: 100%;
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 90px); /* Adjust height to account for navbar height 
+    overflow: hidden;
+    margin-top: 60px; /* Ensure the content starts below the navbar 
+}
+
+.slide {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.6;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    display: block;
+    opacity: 1;
+}
+
+.text-box {
+    position:fixed ;
+    top: 60px;
+    left: 20px;
+    bottom: 30px;
+    background-color: transparent; 
+    color: rgb(7, 0, 0);
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 40%;
+    height: auto; 
+    text-align: left;
+}
+
+.text-box h1 {
+    font-size: 45px;
+    padding: 25px 0;
+}
+
+.text-box p {
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.5;
+    transition: opacity 1s ease;
+    opacity: 0;
+}
+
+.text-box p.animate {
+    opacity: 1;
+}
+
+.summary {
+    display: block;
+    text-align: justify;
+    
+}
+
+.full-text {
+    display: none;
+    margin-top: 10px;
+    
+}
+
+.full-text-visible {
+    display: block;
+    text-align: justify;
+    
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: var(--highlight-color); 
+    color: white; /* Button text color 
+    padding: 8px 16px; /* Padding for button 
+    border-radius: 5px; /* Rounded corners 
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    text-align: justify;
+    
+}
+
+.read-more:hover {
+    background-color: rgb(48, 62, 144); 
+}
+
+/* About Section Styling 
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 50px; /* Add more padding if needed 
+    background: linear-gradient(135deg, white,#37a5d0);
+    min-height: 100vh; /* Ensures the section covers at least the full viewport height 
+    box-sizing: border-box; /* Includes padding in the height calculation 
+}
+
+.about-photo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    animation: fadeIn 1s forwards;
+}
+
+.about-photo img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+    animation: slideInFromBottom 1s forwards;
+    animation-delay: 2.5s; /* Ensure it animates after the heading 
+}
+
+.about-photo img:hover {
+    transform: scale(1.1);
+}
+
+.about-text {
+    flex: 1;
+    padding-left: 50px;
+    color: rgb(10, 1, 1);
+    text-align: left;
+    animation: fadeIn 1s forwards;
+}
+
+/* About Section Heading Styling 
+.about-text h2 {
+    font-size: 50px;
+    margin-bottom: 30px;
+    padding: 10px 20px; /* Add padding around the heading */
+   /*background: linear-gradient(to right, #4caf50, #81c784); /* Green gradient background 
+    color: rgb(8, 0, 0); /* Text color 
+    border-radius: 8px; /* Rounded corners 
+    border-color: 3px solid aliceblue;
+    display: inline-block; /* Fit to text width */
+    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for depth 
+    animation: slideInFromBottom 1s forwards;
+    animation-delay: 1.5s; /* Ensure it animates after the heading 
+}
+
+
+
+.about-text p {
+    font-size: 24px;
+    line-height: 1.6;
+   /* background: linear-gradient(135deg, rgb(174, 199, 227) , rgb(37, 199, 51));
+    border-radius: 5px;
+    padding: 15px;
+    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: slideInFromBottom 1s forwards;
+    animation-delay: 2.5s; /* Ensure it animates after the heading 
+    text-align: justify;
+}
+
+*/
+
+:root {
+    --maincolor: rgb(73, 179, 179);
+    --secondcolor: rgb(238, 230, 230);
+    --textcolor: white;
+    --highlight-color: rgb(25, 172, 42);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all 0.2s linear;
+    font-family: "Noto Sans", sans-serif;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+
+header {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh; 
+    box-sizing: border-box; 
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 60px;
+    width: 100%;
+    background: linear-gradient(135deg,rgb(247, 244, 244), #1e90be);
+    padding: 10px 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+nav img {
+    height: 50px;
+}
+
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: var(--textcolor);
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.nav-links li::after {
+    content: '';
+    width: 0;
+    height: 2px;
+    background: white;
+    display: block;
+    margin: auto;
+}
+
+.nav-links li:hover::after {
+    width: 100%;
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 90px); 
+    overflow: hidden;
+    margin-top: 60px; 
+}
+
+.slide {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.6;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    display: block;
+    opacity: 1;
+}
+
+.text-box {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    bottom: 30px;
+    background-color: transparent; 
+    color: rgb(22, 2, 2);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 30%;
+    height: auto; 
+    text-align: left;
+}
+
+.text-box h1 {
+    font-size: 45px;
+    padding: 12px 0;
+}
+
+.text-box p {
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.5;
+    transition: opacity 1s ease;
+    opacity: 0;
+}
+
+.text-box p.animate {
+    opacity: 1;
+}
+
+.summary {
+    display: block;
+    text-align: justify;
+}
+
+.full-text {
+    display: none;
+    margin-top: 10px;
+    text-align: justify;
+}
+
+.full-text-visible {
+    display: block;
+    text-align: justify;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: var(--highlight-color); 
+    color: white; 
+    padding: 8px 16px; 
+    border-radius: 5px; 
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    text-align: justify;
+}
+
+.read-more:hover {
+    background-color: rgb(48, 62, 144); 
+}
+
+
+.about-section {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    text-align: justify;
+    background: linear-gradient(135deg, white, green);
+    min-height: 100vh; 
+    box-sizing: border-box; 
+}
+
+.about-photo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    animation: fadeIn 1s forwards;
+}
+
+.about-photo img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+    animation: slideInFromBottom 1s forwards;
+    animation-delay: 2.5s; 
+}
+
+.about-photo img:hover {
+    transform: scale(1.1);
+}
+
+.about-text {
+    flex: 1;
+    padding-left: 10px;
+    color: white;
+    text-align: left;
+    animation: fadeIn 1s forwards;
+    text-align: justify;
+}
+
+
+.about-section {
+    background: url('/images/image\ \(4\).png') no-repeat center center/cover;
+    position: relative;
+    padding: 100px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.about-overlay {
+    padding: 80px;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: left;
+    z-index: 1;
+}
+
+.about-heading {
+    font-size: 60px;
+    color:black;
+    margin-bottom: 80px;
+    animation: fadeInDown 1s ease-out;
+}
+
+.about-content {
+    display: flex;
+    justify-content: flex-start; 
+    align-items: flex-start;
+    margin-top: 50px; 
+    padding-left: 20px; 
+    z-index: 2;
+}
+
+.about-paragraph {
+    margin-top: 90px;
+    max-width: 600px;
+    padding: 80px;
+    font-weight: 500;
+    color: black;
+    font-size: 20px;
+    line-height: 1.8;
+    padding: 20px;
+    border-radius: 10px;
+    animation: fadeInLeft 2s ease-in-out; 
+}
+
+
+
+
+/* Keyframes for animations */
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); 
+    }
+}
+
+
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+@media (max-width: 768px) {
+    .about-heading {
+        font-size: 36px;
+    }
+
+    .about-paragraph {
+        font-size: 18px;
+    }
+}
